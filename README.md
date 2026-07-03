@@ -226,30 +226,3 @@ console.log("Welcome to my GitHub Profile 🚀");
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00C9FF,100:92FE9D&height=120&section=footer"/>
 
 </div>
-name: Generate Snake
-
-on:
-  schedule:
-    - cron: "0 */12 * * *"
-
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: Platane/snk/svg-only@v3
-        with:
-          github_user_name: singhtaranveer221-creator
-          outputs: |
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
-
-      - uses: crazy-max/ghaction-github-pages@v3
-        with:
-          target_branch: output
-          build_dir: dist
-
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
